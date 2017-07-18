@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>...</title>
+        <style>
+body{
+    background-color:black;
+}
+div{
+    font-family:monspace;
+    color:#bbb;
+    margin:0;
+}
+div::selection{
+    background-color:white;
+    color:black;
+}
+*:focus {
+  outline: none;
+}
+
+* {
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+        </style>
+    </head>
+    <body>
+<div id="log">Type help for a list of commands</div>
+<div id="input" onkeyup="submit(event)" contenteditable="true">VM:></div>
+<script>
+var Dir="VM:";
+var dir={
+    "OS":{
+        
+    }
+};
+function submit(event){
+    if (event.keyCode == 13) {
+        var input=document.getElementById("input").innerHTML.replace(Dir+"&gt;","");
+        input=input.slice(0,input.length-15);
+        document.getElementById("log").innerHTML+="<br>"+Dir+">"+input;
+        document.getElementById("input").innerHTML=Dir+">";
+        
+        var el = document.getElementById("input");
+        var range = document.createRange();
+        var sel = window.getSelection();
+        range.setStart(el, 1);
+        range.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
+};
+</script>
+    </body>
+</html>
