@@ -8,24 +8,11 @@ div{
     margin:0;
 }
 
-div::selection{
+body::selection, div::selection{
     background-color:white;
     color:black;
 }
 
 *:focus {
   outline: none;
-}
-
-* {
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently supported by Chrome and Opera */
 }

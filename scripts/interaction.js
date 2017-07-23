@@ -7,8 +7,17 @@ function submit(event){
 		
 		var inputi=input.toLowerCase();
 		switch(true){
-			case(inputi=="help"):
-				log.innerHTML+="<br>"+GET("VM:\\OS\\help.txt");
+			case(inputi.indexOf("help")==0):
+				inputi=inputi.replace(" ","-");
+				console.log(GET("VM:\\OS\\help\\"+inputi+".txt"));
+				var help=GET("VM:\\OS\\help\\"+inputi+".txt");
+				try{
+				if(help.indexOf("file")!=0){
+					log.innerHTML+="<br><br>"+help+"<br>&nbsp;";
+					break;
+				}
+				}catch(e){}
+				log.innerHTML+="<br>No help availible for '"+inputi.replace("help-","").toUpperCase()+"'";
 			break;
 			case(inputi=="clear"):
 				log.innerHTML=GET("VM:\\OS\\clear.txt");
