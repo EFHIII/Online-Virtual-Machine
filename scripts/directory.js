@@ -88,7 +88,10 @@ function GET(filePath){
 		for(var i=1;i<Path.length;i++){
 			file=file[Path[i]];
 		}
-		return file;
+		if(typeof file=='object'){
+			return file;
+		}
+		return spc(file);
 	}
 	else{
 		var file=dir;
@@ -99,7 +102,10 @@ function GET(filePath){
 		for(var i=0;i<Path.length;i++){
 			file=file[Path[i]];
 		}
-		return file;
+		if(typeof file=='object'){
+			return file;
+		}
+		return spc(file);
 	}
 	}catch(e){return "file '"+filePath+"' not found";}
 };
