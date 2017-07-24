@@ -119,12 +119,7 @@ function submit(event){
 				log.innerText+="\n file '"+input2.replace(/del /i,"")+"' deleted.";
 			break;
 			case(inputi.indexOf("run ")==0):
-				var at=dir;
-				for(var i=1;i<path.length;i++){
-					at=at[path[i]];
-				}
-				var input2=input;
-				eval(at[input2.replace(/del /i,"")]);
+				eval(GET(input.replace(/run /i,"")));
 			break;
 			case(inputi.indexOf("edit ")==0):
 				editing=input.replace(/edit /i,"");

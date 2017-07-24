@@ -5,7 +5,7 @@ var dir={
 		},
         "clear.txt":"Console cleared!",
 		"dir.js":"log.innerText+='\\n';\nvar at=GET(dirTxt());\nfor(i in at){\n    var fileType=eval(GET('VM:\\\\OS\\\\fileType.js'));\n    var space='';\n    if(fileType.length<17){\n        var space=Array(16-fileType.length).join(' ');\n    }\n    log.innerText+='\\n'+fileType+space+i;\n}\nlog.innerText+='\\n ';",
-		"fileType.js":"if(typeof(at[i])=='object'){'<DIR>';}\nelse{\n    switch(true){\n    case(i.endsWith('.txt')):'Text';break;\n    case(i.endsWith('.js')):'Javascript';break;\n    case(i.endsWith('.html')):'HTML';break;\n    case(i.endsWith('.css')):'Stylesheet';break;\n    }\n}",
+		"fileType.js":"if(typeof(at[i])=='object'){'<DIR>';}\nelse{\n    switch(true){\n    case(i.endsWith('.txt')):'Text';break;\n    case(i.endsWith('.js')):'Javascript';break;\n    case(i.endsWith('.html')):'HTML';break;\n    case(i.endsWith('.css')):'Stylesheet';break;\n    default:'txt';\n    }\n}",
     }
 };
 
